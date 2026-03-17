@@ -4,9 +4,9 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4  # 升级到了 v4
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5  # 升级到了 v5
       with:
         python-version: '3.10'
     - name: Install dependencies
@@ -16,7 +16,7 @@ jobs:
     - name: Build EXE
       run: pyinstaller -F HW.py
     - name: Upload Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4  # 升级到了 v4，修复报错的核心
       with:
         name: HW-Executable
         path: dist/HW.exe
